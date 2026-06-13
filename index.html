@@ -899,16 +899,26 @@
 
 
 <script>
-  // Smooth scroll for estimate buttons
-  document.addEventListener('DOMContentLoaded', function() {
-    var estimateBtn = document.getElementById('estimate-btn');
-    var contactSection = document.getElementById('contact');
-    if (estimateBtn && contactSection) {
-      estimateBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      });
+  function scrollToContact(e) {
+    if (e) e.preventDefault();
+    var target = document.getElementById('contact');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.hash = 'contact';
     }
+  }
+
+  window.addEventListener('load', function() {
+    // Attach to estimate button
+    var btn = document.getElementById('estimate-btn');
+    if (btn) btn.addEventListener('click', scrollToContact);
+
+    // Attach to any other #contact links
+    var links = document.querySelectorAll('a[href="#contact"]');
+    links.forEach(function(link) {
+      link.addEventListener('click', scrollToContact);
+    });
   });
 </script>
 </body>
