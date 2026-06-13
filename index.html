@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRD Electric Vancouver — Quality Work, No Matter What</title>
+  <meta name="description" content="Licensed and insured electricians serving North Vancouver, West Vancouver, and the Lower Mainland. Residential, commercial, EV chargers, and 24/7 emergency service." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #F5C000;
+      --yellow-dark: #c99a00;
+      --black: #0f0f0f;
+      --dark: #1a1a1a;
+      --mid: #2a2a2a;
+      --grey: #aaa;
+      --light-grey: #f4f4f4;
+      --white: #fff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      border-bottom: 3px solid var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+    }
+    .nav-brand {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--white); font-weight: 400; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-cta {
+      background: var(--yellow) !important;
+      color: var(--black) !important;
+      padding: 8px 18px;
+      font-weight: 700 !important;
+      letter-spacing: 1px !important;
+    }
+    .nav-cta:hover { background: #ffd740 !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--black);
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 40px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(245,192,0,0.07) 0%, transparent 65%);
+    }
+    .hero-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(52px, 9vw, 110px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 0.95;
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+    .hero-headline em {
+      color: var(--yellow);
+      font-style: normal;
+      display: block;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--grey);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 14px 32px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #ffd740; }
+    .btn-secondary {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--yellow); border-color: var(--yellow); }
+    .hero-badges {
+      display: flex;
+      gap: 32px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+    }
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--yellow);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hero-badge-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+    .hero-bolt {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 300px;
+      color: rgba(245,192,0,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--yellow);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--black);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .trust-item::before {
+      content: '⚡';
+      font-size: 14px;
+    }
+
+    /* ── SECTION COMMON ── */
+    .section { padding: 80px 40px; }
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-title.light { color: var(--white); }
+    .section-body {
+      font-size: 16px;
+      color: #555;
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .section-body.light { color: var(--grey); }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #e5e5e5;
+      margin-top: 40px;
+    }
+    .stat-box {
+      background: var(--white);
+      padding: 28px 24px;
+    }
+    .stat-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .about-visual {
+      background: var(--black);
+      padding: 48px 40px;
+      position: relative;
+    }
+    .about-visual::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--yellow);
+    }
+    .about-quote {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .about-quote em { color: var(--yellow); font-style: normal; }
+    .about-details { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+    .about-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--grey);
+    }
+    .about-detail::before {
+      content: '⚡';
+      color: var(--yellow);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--dark); }
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      max-width: 1100px;
+      margin: 0 auto 48px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--mid);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--dark);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+    .service-card:hover { background: #222; }
+    .service-card-icon {
+      font-size: 22px;
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+    .service-card-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .service-card-desc {
+      font-size: 13px;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+
+    /* ── WHY MRD ── */
+    .why-section { background: var(--yellow); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 48px auto 0;
+    }
+    .why-card {
+      background: var(--black);
+      padding: 32px 28px;
+    }
+    .why-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: rgba(245,192,0,0.4);
+      margin-bottom: 16px;
+    }
+    .why-card-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .why-card-desc {
+      font-size: 14px;
+      color: var(--grey);
+      line-height: 1.65;
+    }
+
+    /* ── AREAS SERVED ── */
+    .areas-section { background: var(--light-grey); }
+    .areas-inner { max-width: 1100px; margin: 0 auto; }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .area-tag {
+      background: var(--white);
+      border: 1px solid #ddd;
+      border-left: 3px solid var(--yellow);
+      padding: 12px 16px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      color: var(--black);
+      letter-spacing: 1px;
+    }
+
+    /* ── EMERGENCY STRIP ── */
+    .emergency-strip {
+      background: var(--black);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      border-top: 3px solid var(--yellow);
+      border-bottom: 3px solid var(--yellow);
+    }
+    .emergency-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .emergency-text span { color: var(--yellow); }
+    .emergency-sub { font-size: 14px; color: var(--grey); margin-top: 4px; }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--white); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-icon-box {
+      width: 40px;
+      height: 40px;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .contact-item-label {
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .contact-item-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .contact-item-value a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--yellow); }
+    .contact-form-panel {
+      background: var(--black);
+      padding: 40px;
+    }
+    .form-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 24px;
+      color: var(--yellow);
+      margin-bottom: 8px;
+    }
+    .form-sub { font-size: 13px; color: var(--grey); margin-bottom: 28px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: var(--white);
+      padding: 11px 14px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--yellow); }
+    .form-group textarea { height: 100px; resize: vertical; }
+    .form-group select option { background: #1a1a1a; }
+    .form-submit {
+      width: 100%;
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      padding: 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+    .form-submit:hover { background: #ffd740; }
+    .form-note { font-size: 11px; color: #555; margin-top: 10px; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 3px solid var(--yellow);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: 2px;
+    }
+    .footer-tagline {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .footer-right { font-size: 12px; color: #555; text-align: right; line-height: 2; }
+    .footer-right a { color: #555; text-decoration: none; }
+    .footer-right a:hover { color: var(--yellow); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { padding: 60px 24px 40px; min-height: 80vh; }
+      .hero-bolt { display: none; }
+      .trust-bar { gap: 20px; padding: 16px 24px; }
+      .section { padding: 56px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .emergency-strip { padding: 28px 24px; }
+      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+      .footer-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">MRD <span>Electric Ltd.</span></a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#areas">Areas</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Free Estimate</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Licensed · Insured · North Vancouver</div>
+  <h1 class="hero-headline">
+    Quality work.<br>
+    <em>No matter what.</em>
+  </h1>
+  <p class="hero-sub">Vancouver's electricians for residential renovations, commercial TIs, EV chargers, panel upgrades, and 24/7 emergency response.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary" id="estimate-btn">Get a Free Estimate</a>
+    <a href="tel:6044402146" class="btn-secondary">Call 604-440-2146</a>
+  </div>
+  <div class="hero-badges">
+    <div class="hero-badge"><div class="hero-badge-dot"></div><div class="hero-badge-text">BC Licensed</div></div>
+    <div class="hero-badge"><div class="hero-badge-dot"></div><div class="hero-badge-text">Fully Insured</div></div>
+    <div class="hero-badge"><div class="hero-badge-dot"></div><div class="hero-badge-text">Free Estimates</div></div>
+    <div class="hero-badge"><div class="hero-badge-dot"></div><div class="hero-badge-text">24/7 Emergency</div></div>
+  </div>
+  <div class="hero-bolt" aria-hidden="true">⚡</div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">Residential</div>
+  <div class="trust-item">Commercial</div>
+  <div class="trust-item">EV Chargers</div>
+  <div class="trust-item">Panel Upgrades</div>
+  <div class="trust-item">New Builds</div>
+  <div class="trust-item">24/7 Emergency</div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Built on skill.<br>Driven by standards.</h2>
+      <p class="section-body">MRD Electric is a North Vancouver–based electrical contractor serving homeowners, strata councils, contractors, and businesses across the Lower Mainland. We bring the same care and expertise to every job — whether it's a quick safety fix or a complete system for a new build.</p>
+      <p class="section-body" style="margin-top:16px;">Every project is approached with honesty, clean workmanship, and a genuine commitment to getting it right. That's what "Quality Work, No Matter What" means to us.</p>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Emergency Response</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">Free</div>
+          <div class="stat-label">Estimates</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Licensed & Insured</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">BC</div>
+          <div class="stat-label">Certified Electricians</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-quote">We do the job right — <em>or we don't leave</em> until it is.</div>
+      <div class="about-details">
+        <div class="about-detail">Fully certified BC electricians on every job</div>
+        <div class="about-detail">Permits pulled and inspections arranged where required</div>
+        <div class="about-detail">Tidy installs — we clean up before we leave</div>
+        <div class="about-detail">Upfront pricing — no surprise invoices</div>
+        <div class="about-detail">Serving North Van, West Van, Vancouver & surrounding areas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title light">Our Services</h2>
+    </div>
+    <p class="section-body light" style="max-width:360px;">From a single outlet to a full commercial fit-out — we handle it all.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Troubleshooting & Repairs</div>
+      <div class="service-card-desc">Fast diagnosis and safe, code-compliant fixes for any electrical issue.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Panel & Service Upgrades</div>
+      <div class="service-card-desc">100A–200A+, load calculations, permits pulled, and panels properly labeled.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">EV Charger Installations</div>
+      <div class="service-card-desc">Level 2 chargers with neat cable runs and rebate program guidance.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Lighting & Controls</div>
+      <div class="service-card-desc">Pot lights, pendants, dimmers, smart switches — functional and finished.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Renovations & Additions</div>
+      <div class="service-card-desc">Rough-in to finish on kitchens, secondary suites, and full remodels.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Custom Homes & New Builds</div>
+      <div class="service-card-desc">Full electrical from the ground up, on schedule and on spec.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Safety Upgrades</div>
+      <div class="service-card-desc">Smoke/CO detectors, GFCI/AFCI protection, whole-home surge suppression.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Hot Tub & Sauna Circuits</div>
+      <div class="service-card-desc">Outdoor-rated, GFCI-protected dedicated connections done right.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Generator & Transfer Switches</div>
+      <div class="service-card-desc">Interlocks and transfer switches for reliable backup power.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Commercial Tenant Improvements</div>
+      <div class="service-card-desc">Office and retail power and lighting for move-in-ready spaces.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Common-Area & LED Retrofits</div>
+      <div class="service-card-desc">Parkades, corridors, and exterior lighting upgraded to efficient LEDs.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Insurance & Aluminum Wiring</div>
+      <div class="service-card-desc">Aluminum wiring remediation and updates to satisfy insurers.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">EV Readiness Studies</div>
+      <div class="service-card-desc">Load studies and phased charger rollouts for strata and commercial properties.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Panel Labeling & Circuit Tracing</div>
+      <div class="service-card-desc">Documentation and clarity for older or poorly labeled buildings.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">Preventive Maintenance</div>
+      <div class="service-card-desc">Thermal checks, torque-to-spec, and detailed maintenance reporting.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">⚡</div>
+      <div class="service-card-name">24/7 Emergency Services</div>
+      <div class="service-card-desc">Electrical emergencies don't wait — and neither do we.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MRD -->
+<section class="section why-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label" style="color:#7a5e00;">Why Choose MRD</div>
+    <h2 class="section-title">The MRD Difference</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-number">01</div>
+        <div class="why-card-title">Licensed & Insured</div>
+        <div class="why-card-desc">Fully certified BC electricians on every job. Every project is permitted and inspected where required — no grey areas, no shortcuts.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-number">02</div>
+        <div class="why-card-title">24/7 Emergency Response</div>
+        <div class="why-card-desc">Electrical emergencies don't keep business hours. Day or night, we pick up and show up — because your safety can't wait until morning.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-number">03</div>
+        <div class="why-card-title">Clean, Quality Work</div>
+        <div class="why-card-desc">Tidy installs, straight runs, clear communication, and no surprise invoices. We leave every job site cleaner than we found it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS SERVED -->
+<section class="section areas-section" id="areas">
+  <div class="areas-inner">
+    <div class="section-label">Where We Work</div>
+    <h2 class="section-title">Areas Served</h2>
+    <p class="section-body">Based in North Vancouver, we serve residential and commercial clients across the Lower Mainland.</p>
+    <div class="areas-grid">
+      <div class="area-tag">North Vancouver</div>
+      <div class="area-tag">West Vancouver</div>
+      <div class="area-tag">Vancouver</div>
+      <div class="area-tag">Burnaby</div>
+      <div class="area-tag">Coquitlam</div>
+      <div class="area-tag">Port Moody</div>
+      <div class="area-tag">Port Coquitlam</div>
+      <div class="area-tag">New Westminster</div>
+      <div class="area-tag">Richmond</div>
+      <div class="area-tag">Surrey</div>
+      <div class="area-tag">Langley</div>
+      <div class="area-tag">Squamish</div>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY STRIP -->
+<div class="emergency-strip">
+  <div>
+    <div class="emergency-text">Electrical emergency? <span>We're available 24/7.</span></div>
+    <div class="emergency-sub">Don't wait — call us now for immediate assistance.</div>
+  </div>
+  <a href="tel:6044402146" class="btn-primary" style="white-space:nowrap;">Call 604-440-2146</a>
+</div>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's talk about your project.</h2>
+      <p class="section-body">Whether it's a quick question or a full quote, we're happy to help. Free estimates, no pressure.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon-box">📞</div>
+          <div>
+            <div class="contact-item-label">Phone</div>
+            <div class="contact-item-value"><a href="tel:6044402146">604-440-2146</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">✉️</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value"><a href="mailto:rayne@mrd-electric.com">rayne@mrd-electric.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">📍</div>
+          <div>
+            <div class="contact-item-label">Address</div>
+            <div class="contact-item-value">#202 – 170 3rd St E<br>North Vancouver, BC V7L 1E6</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">🌐</div>
+          <div>
+            <div class="contact-item-label">Website</div>
+            <div class="contact-item-value"><a href="https://www.mrd-electric.com">www.mrd-electric.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-panel">
+      <div class="form-title">Request a Free Estimate</div>
+      <div class="form-sub">We'll get back to you within one business day.</div>
+      <form action="https://formspree.io/f/mdavprpz" method="POST">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="604-555-0100" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="jane@example.com" required />
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select name="service">
+            <option value="">Select a service…</option>
+            <option>Troubleshooting &amp; Repairs</option>
+            <option>Panel Upgrade</option>
+            <option>EV Charger Installation</option>
+            <option>Lighting &amp; Controls</option>
+            <option>Renovation / Addition</option>
+            <option>New Build / Custom Home</option>
+            <option>Commercial / Tenant Improvement</option>
+            <option>Safety Upgrade</option>
+            <option>Emergency Service</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Project Details</label>
+          <textarea name="message" placeholder="Briefly describe your project or issue…"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send My Request</button>
+        <div class="form-note">We serve North Vancouver, West Vancouver, Vancouver &amp; the Lower Mainland.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">MRD Electric Ltd. Vancouver</div>
+    <div class="footer-tagline">Quality Work, No Matter What</div>
+  </div>
+  <div class="footer-right">
+    <a href="tel:6044402146">604-440-2146</a> · <a href="mailto:rayne@mrd-electric.com">rayne@mrd-electric.com</a><br>
+    #202 – 170 3rd St E, North Vancouver, BC V7L 1E6<br>
+    <span style="color:#333;">© 2026 MRD Electric Ltd. All rights reserved.</span>
+  </div>
+</footer>
+
+
+<script>
+  // Smooth scroll for estimate buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    var estimateBtn = document.getElementById('estimate-btn');
+    var contactSection = document.getElementById('contact');
+    if (estimateBtn && contactSection) {
+      estimateBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  });
+</script>
+</body>
+</html>
